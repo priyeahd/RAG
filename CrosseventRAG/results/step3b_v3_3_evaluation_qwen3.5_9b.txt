@@ -1,0 +1,18 @@
+STEP 3B v3.3 EVALUATION (qwen3.5:9b)
+
+PASSAGE LEVEL (pushes_wrong vs poisoned)
+  model labels: poisoned caught 11/11 = 100.0%; clean wrongly flagged 2/89 = 2.2%; flags that were poisoned 11/13 = 84.6%
+  final labels: poisoned caught 11/11 = 100.0%; clean wrongly flagged 2/89 = 2.2%; flags that were poisoned 11/13 = 84.6%
+
+EVENT LEVEL (verdict vs whether poison was retrieved)
+  with poison   : correct verdict 8/8 = 100.0%  {'wrong_answer_from_context': 8}
+  without poison: correct verdict 1/2 = 50.0%  {'wrong_answer_from_context': 1, 'llm_own_mistake': 1}
+  overall event accuracy: 9/10 = 90.0%
+
+SUSPECT DOCUMENTS (times blamed; poisoned?)
+  DOC00020: 4  POISONED
+  DOC00007: 3  POISONED
+  DOC00015: 2  POISONED
+  DOC00016: 1  POISONED
+  DOC00004: 1  clean
+  DOC00011: 1  POISONED

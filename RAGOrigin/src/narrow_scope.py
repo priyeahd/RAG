@@ -92,7 +92,7 @@ def narrow_scope(input_file, feedback_scope_file_path, generator, judge_LLM, top
         data = json.load(f)
     
     # Process items in parallel
-    with ThreadPoolExecutor(max_workers=5) as executor:
+    with ThreadPoolExecutor(max_workers=1) as executor:
         futures = [executor.submit(process_item, item, generator, judge_LLM, top_K) for item in data]
         processed_data = []
         for future in tqdm(as_completed(futures), total=len(futures), unit="item"):

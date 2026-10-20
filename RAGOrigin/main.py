@@ -1,3 +1,4 @@
+import torch
 import argparse
 import json
 import os
@@ -67,7 +68,7 @@ def setup_models(args):
     # Load local proxy model for responsibility measurement
     model_name_or_path = f'{args.proxy_model}'
     tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-    model = AutoModelForCausalLM.from_pretrained(model_name_or_path)
+    model = AutoModelForCausalLM.from_pretrained(model_name_or_path, torch_dtype=torch.float16)
     device = f"cuda:{args.cuda_device}"
     model.to(device)
     model.eval()

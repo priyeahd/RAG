@@ -46,7 +46,11 @@ class OpenAIGenerator:
         if setting.pop("api_type", None) == "azure":
             return AsyncAzureOpenAI(**setting)
         else:
-            return AsyncOpenAI(**setting)
+            return AsyncOpenAI(
+    **setting,
+    timeout=120.0,
+    max_retries=1
+)
     
     async def get_response(self, messages: List[Dict[str, str]], **params) -> str:
         """

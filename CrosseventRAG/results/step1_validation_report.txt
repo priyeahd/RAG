@@ -1,0 +1,54 @@
+STEP 1 VALIDATION: PASS
+Data folder: C:\Users\priya\Documents\RAG-Responsibility-Attribution\CrosseventRAG\data
+
+RESULTS
+[PASS] Master has exactly the nine required columns
+[PASS] Detector excludes correct answers and poison labels
+[PASS] Ground truth contains expected evaluation fields
+[PASS] Manifest has document_id column
+[PASS] Master has exactly 10,000 rows - found 10000
+[PASS] All three main files have the same row count
+[PASS] No missing values in Master - missing cells 0
+[PASS] Context positions are valid integers - invalid rows 0
+[PASS] Retrieval scores are between 0 and 1 - invalid rows 0
+[PASS] Poison labels are valid True/False values - invalid rows 0
+[PASS] Exactly 1,000 event IDs - found 1000
+[PASS] Exactly 10 context rows per event - bad events 0
+[PASS] Each event has positions 0 through 9 once - bad events 0
+[PASS] Each event has one consistent question and answer pair - bad events 0
+[PASS] 1,000 distinct question strings - found 1000
+[PASS] Exactly 20 distinct source-document IDs - found 20
+[PASS] Each document has a consistent poison label - mixed-label docs 0
+[PASS] All 20 documents have multiple different context texts - found 20
+[PASS] All document IDs recur across different events - found 20
+[PASS] Exactly 500 poisoned context rows - found 500
+[PASS] Exactly 9,500 clean context rows - found 9500
+[PASS] Exactly five injected-source document IDs - found 5
+[PASS] Exactly 680 correct-answer events (68%) - found 680
+[PASS] Exactly 320 incorrect-answer events (32%)
+[PASS] Correct/error outcomes include clean and poisoned events - (True, False):480, (True, True):200, (False, False):120, (False, True):200
+[PASS] No duplicate event/position pairs in Master - duplicates 0
+[PASS] No duplicate event/position pairs in Detector - duplicates 0
+[PASS] No duplicate event/position pairs in GroundTruth - duplicates 0
+[PASS] Master/Detector/GroundTruth have identical keys
+[PASS] Detector values match the Master - mismatched rows 0
+[PASS] GroundTruth values match the Master - mismatched rows 0
+[PASS] Manifest has 20 unique document IDs
+[PASS] Every document ID is listed in source manifest
+
+SUMMARY
+Events: 1000; context rows: 10000; documents: 20
+Clean rows: 9500; poisoned rows: 500; poisoned sources: 5
+Correct events: 680; incorrect events: 320
+Correct without poison: 480
+Correct with poison: 200
+Incorrect without poison: 120
+Incorrect with poison: 200
+
+RESEARCH LIMITATIONS
+- Answers and retrieval scores are SIMULATED, not actual RAG/LLM outputs.
+- Questions have 1,000 distinct strings but about 100 underlying fact targets.
+- Structure checks do not prove passage relevance or causal poisoning responsibility.
+- Keep ground-truth CSV and source manifest away from detector inference.
+
+Errors: 0
